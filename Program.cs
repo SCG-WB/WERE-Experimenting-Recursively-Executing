@@ -13,7 +13,17 @@ namespace WERE_Experimenting_Recursively_Executing
             Console.WriteLine(ReverseStringRecursively("notlob"));
             //Console.WriteLine(ReverseStringIteratively("slipup"));
             Console.WriteLine(IterativeFactorial(5));
-
+            Console.WriteLine("What factorial? ");
+            try
+            {
+                Console.WriteLine(RecursiveFactorial(Convert.ToInt32(Console.ReadLine())));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("EEK!");
+                Console.WriteLine(ex.StackTrace);
+            }
+            Console.WriteLine("Hit enter to exit... ");
             WaitForEnter();
         }
 
@@ -59,6 +69,15 @@ namespace WERE_Experimenting_Recursively_Executing
                 n = n - 1;
             }
             return product;
+        }
+
+        static int RecursiveFactorial(int n)
+        {
+            if (n == 0) { return 1; }
+            else
+            {
+                return n * RecursiveFactorial(n - 1);
+            }
         }
 
         static int IterativeTriangular(int n)
